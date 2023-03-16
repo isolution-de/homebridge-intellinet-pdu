@@ -8,20 +8,14 @@
 
 # Homebridge Plugin for Intellinet IP PDU
 
-## Install Development Dependencies
+## Warning
 
-Using a terminal, navigate to the project folder and run this command to install the development dependencies:
-
-```
-npm install
-```
-
+This project is in early development. Don't expect anything to work.
 
 ## Build Plugin
 
-TypeScript needs to be compiled into JavaScript before it can run. The following command will compile the contents of your [`src`](./src) directory and put the resulting code into the `dist` folder.
-
 ```
+npm install
 npm run build
 ```
 
@@ -39,34 +33,6 @@ You can now start Homebridge, use the `-D` flag so you can see debug log message
 homebridge -D
 ```
 
-## Watch For Changes and Build Automatically
-
-If you want to have your code compile automatically as you make changes, and restart Homebridge automatically between changes, you first need to add your plugin as a platform in `~/.homebridge/config.json`:
-```
-{
-...
-    "platforms": [
-        {
-            "name": "Config",
-            "port": 8581,
-            "platform": "config"
-        },
-        {
-            "name": "<PLUGIN_NAME>",
-            //... any other options, as listed in config.schema.json ...
-            "platform": "<PLATFORM_NAME>"
-        }
-    ]
-}
-```
-
-and then you can run:
-
-```
-npm run watch
-```
-
-This will launch an instance of Homebridge in debug mode which will restart every time you make a change to the source code. It will load the config stored in the default location under `~/.homebridge`. You may need to stop other running instances of Homebridge while using this command to prevent conflicts. You can adjust the Homebridge startup command in the [`nodemon.json`](./nodemon.json) file.
 
 ## Customise Plugin
 
