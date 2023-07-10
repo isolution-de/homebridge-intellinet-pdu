@@ -1,34 +1,67 @@
 {
-  "pluginAlias": "IntellinetPDU",
-  "pluginType": "platform",
-  "singular": true,
-  "schema": {
-    "type": "object",
-    "properties": {
-      "name": {
-        "title": "Name",
-        "type": "string",
-        "required": true,
-        "default": "Example Dynamic Platform"
-      },
-      "host": {
-        "title": "Host",
-        "type": "string",
-        "required": true,
-        "default": "IP Address or hostname"
-      },
-      "username": {
-        "title": "Username",
-        "type": "string",
-        "required": true,
-        "default": "Username"
-      },
-      "password": {
-        "title": "Password",
-        "type": "string",
-        "required": true,
-        "default": "Password"
-      }
-    }
-  }
+    "pluginAlias": "IntellinetPDU",
+    "pluginType": "accessory",
+    "singular": false,
+    "headerDisplay": "Optional header shown above config.",
+    "footerDisplay": "Optional footer shown below config.",
+    "schema": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "title": "Name",
+                "type": "string",
+                "required": true
+            },
+            "host": {
+                "title": "IP Address / Hostname",
+                "type": "string",
+                "required": true,
+                "format": "hostname"
+            },
+            "username": {
+                "title": "Username",
+                "type": "string",
+                "required": false,
+                "placeholder": "admin"
+            },
+            "password": {
+                "title": "Password",
+                "type": "string",
+                "required": false,
+                "placeholder": "password"
+            },
+            "switchNames": {
+                "title": "Switches",
+                "type": "array",
+                "required": false,
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "position": {
+                            "title": "Switch Number",
+                            "type": "integer",
+                            "required": true,
+                            "placeholder": "0-7",
+                            "minValue": 0,
+                            "maxValue": 7
+                        },
+                        "name": {
+                            "title": "Switch Name",
+                            "type": "string",
+                            "required": true,
+                            "default": "Switch #n"
+                        },
+                        "enabled": {
+                            "title": "Enabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": false
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "form": null,
+    "display": null
 }
